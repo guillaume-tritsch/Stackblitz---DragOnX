@@ -1,0 +1,31 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body > div:not(.marble-list) {
+  border: solid rgb(88, 88, 88) 1px;
+  flex-grow: 1;
+}
+
+.marble-list {
+  height: min-content;
+}
+
+.marble {
+  position: absolute;
+  clip-path: circle(50%);
+  background-color: rgb(165, 165, 165);
+  height: 40px;
+  width: 40px;
+}
+
+.m {
+  background-color: red !important;
+}

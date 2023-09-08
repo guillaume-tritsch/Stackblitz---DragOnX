@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="marble-list">
+      <div class="marble"></div>
+      <div class="marble"></div>
+      <div class="marble"></div>
+    </div>
+    <div></div>
+    <div class="marble-list"></div>
+
+    <script>
+      var mouseIsDown = false;
+
+      let allMarble = document.querySelectorAll('.marble');
+      allMarble.forEach((e) => {
+        e.addEventListener('mousedown', function (event) {
+          event.target.classList.add('m');
+          document.dragedTarget = event.target;
+          document.addEventListener('mousemove', dragMarble);
+        });
+        document.addEventListener('mouseup', function (event) {
+          document.removeEventListener('mousemove', dragMarble);
+          document.dragedTarget.classList.remove('m');
+        });
+      });
+
+      function dragMarble(event) {
+        document.dragedTarget.style.left = event.pageX - 20 + 'px';
+      }
+    </script>
+  </body>
+</html>
